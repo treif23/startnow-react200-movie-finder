@@ -3,23 +3,24 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
-import reducers from './reducers';
+import rootReducer from './rootReducer';
 import App from './app';
+import store from './rootStore';
 
 /* eslint-disable no-underscore-dangle */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// moving below to rootStore**************
+// const composeEnhancers =  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(reducers, composeEnhancers(
-  applyMiddleware(
-    promiseMiddleware()
-  )
-));
-
-/* eslint-enable */
+// const store = createStore(rootReducer, composeEnhancers(
+//     applyMiddleware(
+//       promiseMiddleware()
+//     )
+//   ));
+/* eslint-enable */ 
 
 
 render(
-  <Provider store={store}>
+  <Provider store={ store }>
     <App />
   </Provider>,
   document.getElementById('root')
