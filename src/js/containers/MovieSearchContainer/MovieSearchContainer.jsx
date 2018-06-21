@@ -74,19 +74,21 @@ class MovieSearchContainer extends React.Component {
 
                     </div>
                 </div>
-                <div id='info' className='row'>
+                {movies.map((movie, imdbID) => (
+                    <div key={movie.imdbID} id='info' className='row'>
 
-                    <div className='col-6'>
-                        {movies.length > 0 && <img src={movies[0].Poster} />}
+                        <div className='col-5'>
+                            {movie.Poster && <img src={movie.Poster} />}
+                        </div>
+                        <div id='movie' className='col-5'>
+                            {movie.Title && <p id='title1'>{movie.Title}</p>}
+                            {movie.Year && <p>({movie.Year})</p>}
+                            <button className="btn btn-primary col-lg-4" role="button">More Details</button>
+                        </div>
+
                     </div>
-                    <div id='movie' className='col-6'>
-                        {movies.length > 0 && <p id='title1'>{movies[0].Title}</p>}
-                        {movies.length > 0 && <p>{movies[0].Year}</p>}
-                        <a className="btn btn-primary col-lg-3" role="button">More Details</a>
-                    </div>
+                ))}
 
-
-                </div>
             </div>
 
         )
