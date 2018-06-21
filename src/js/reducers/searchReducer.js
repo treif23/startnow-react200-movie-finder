@@ -1,19 +1,34 @@
 const defaultState = {
-  searchText: ''
+    searchText: '',
+    title: '',
+    year: '',
+    poster: '',
+    movies: []
 };
 
-export default function searchReducer (state = defaultState, action) {
-  const { type, payload } = action;
+export default function searchReducer(state = defaultState, action) {
+    const { type, payload } = action;
 
-  switch(type) {
-    case 'SEARCH_MOVIE': {
-      return {
-        state
-      };
-    }
+    switch (type) {
+        case 'SEARCH_MOVIE': {
+            return {
+                ...state,
+                searchText: payload.searchText
+            };
+        }
+        case 'UPDATE_MOVIE_DESCRIPTION_FULFILLED': {
+            //payload == response
+console.log("INSIDE ACTION", payload)
+            return {
 
-    default: {
-      return state;
+                ...state,
+                movies: payload.Search,
+
+            };
+        }
+        default: {
+            return { ...state };
+        }
+
     }
-  }
 }
