@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import MovieSearchContainer from './MovieSearchContainer';
+import MovieDetailContainer from './MovieDetailContainer';
 import * as SearchActions from '../../actions';
 
 
@@ -12,13 +12,13 @@ function mapStoreToProps(store) {
         year: store.search.year,
         poster: store.search.poster,
         movies: store.search.movies,
-        imdbID: store.search.imdbID
+        selectedMovie: store.search.selectedMovie
 
     };
 }
 
 
 
-export default connect(mapStoreToProps)(MovieSearchContainer);
+export default connect(mapStoreToProps)(MovieDetailContainer);
 
 console.log('OK');

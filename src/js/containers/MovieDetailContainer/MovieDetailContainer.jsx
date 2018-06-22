@@ -1,11 +1,22 @@
 import React from 'react';
+import { updateMovieDetails } from '../../actions';
+
 
 class MovieDetailContainer extends React.Component {
   constructor(props) {
     super(props);
   }
 
+
+  componentDidMount() {
+    const { dispatch, match: { params: { id } } } = this.props;
+    console.log('++++++++++', id);
+    dispatch(updateMovieDetails(id))
+    console.log('DETAILS', this.props)
+  }
+
   render() {
+    const { selectedMovie } = this.props;
     return (
       <div>
         <h1>Movie Detail Container</h1>
@@ -16,9 +27,9 @@ class MovieDetailContainer extends React.Component {
             <div className='col-5'>
               <div> IMAGE!! <div>
               </div>
-                <div id='movie' className='col-5'>
-                  <p id='title1'>MOVIE TITLE</p>
-                  <p>(MOVIE YEAR)</p>
+                <div id='movie' className='col-5'>  
+                  {selectedMovie && <p id='title1'>{selectedMovie.Title}</p>}
+                  {selectedMovie && <p>{selectedMovie.Year}</p>}
                   <p>MOVIE DESCRIPTION</p>
                 </div>
               </div>

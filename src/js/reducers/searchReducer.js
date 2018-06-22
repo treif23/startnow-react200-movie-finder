@@ -3,6 +3,7 @@ const defaultState = {
     title: '',
     year: '',
     poster: '',
+    imdbID: '',
     movies: []
 };
 
@@ -26,6 +27,16 @@ console.log("INSIDE ACTION", payload)
 
             };
         }
+        case 'UPDATE_MOVIE_DETAILS_FULFILLED': {
+            console.log('INSIDE DETAILS ACTION')
+            return {
+                ...state,
+                selectedMovie: payload
+               
+            };
+            console.log(imdbID)
+        }
+
         default: {
             return { ...state };
         }

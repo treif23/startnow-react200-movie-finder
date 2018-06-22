@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {
     updateMovieDescription,
     searchMovie,
+    updateMovieDetails
     //updateSanDiego
 } from '../../actions';
 
@@ -10,34 +12,36 @@ class MovieSearchContainer extends React.Component {
     constructor(props) {
         super(props);
 
+        this.handleDetails = this.handleDetails.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleSearchInput = this.handleSearchInput.bind(this);
     }
 
-    componentDidMount() {
-        console.log('HERE');
+    handleDetails(event) {
+        const { dispatch, imdbID } = this.props;
+        dispatch(updateMovieDetails(imdbID));
     }
 
     handleSearchInput(event) {
 
         const { dispatch } = this.props;
         const { value } = event.target;
-        console.log('hello')
 
         dispatch(searchMovie(value));
-        console.log(this.props)
+     
     }
 
     handleSearch(event) {
         // dispatch was provided by connect()
         const { dispatch, searchText } = this.props;
         dispatch(updateMovieDescription(searchText));
-        console.log(this.props);
+       
     }
 
 
     render() {
         const { movies } = this.props;
+        console.log('RENDER METHOD', this.props.movies)
         if (movies.length == 0) {
             return (
                 <div className='container'>
@@ -83,7 +87,9 @@ class MovieSearchContainer extends React.Component {
                         <div id='movie' className='col-5'>
                             {movie.Title && <p id='title1'>{movie.Title}</p>}
                             {movie.Year && <p>({movie.Year})</p>}
-                            <button className="btn btn-primary col-lg-4" role="button">More Details</button>
+                            <Link to={`/movie/${movie.imdbID}`}>
+                            <button className="btn btn-primary col-lg-4" role="button" onClick={this.handleDetails}>More Details</button>
+                            </Link>
                         </div>
 
                     </div>
