@@ -10,9 +10,7 @@ class MovieDetailContainer extends React.Component {
 
   componentDidMount() {
     const { dispatch, match: { params: { id } } } = this.props;
-    console.log('++++++++++', id);
     dispatch(updateMovieDetails(id))
-    console.log('DETAILS', this.props)
   }
 
   render() {
@@ -20,24 +18,26 @@ class MovieDetailContainer extends React.Component {
     return (
       <div>
         <h1>Movie Detail Container</h1>
-        <p>Viewing movie {this.props.match.params.id}</p>
         <div className='container'>
           <div id='info' className='row'>
 
             <div className='col-5'>
-              <div> IMAGE!! <div>
+              {selectedMovie && <img id='poster' src={selectedMovie.Poster} />}
               </div>
-                <div id='movie' className='col-5'>  
-                  {selectedMovie && <p id='title1'>{selectedMovie.Title}</p>}
-                  {selectedMovie && <p>{selectedMovie.Year}</p>}
-                  <p>MOVIE DESCRIPTION</p>
-                </div>
-              </div>
+              <div id='movie1' className='col-5'>
+                {selectedMovie && <p id='title1'>{selectedMovie.Title}</p>}
+                {selectedMovie && <p>({selectedMovie.Year})</p>}
+                {selectedMovie && <p>Director: {selectedMovie.Director}</p>}
+                {selectedMovie && <p>Actors: {selectedMovie.Actors}</p>}
+                {selectedMovie && <p>Rotten Tomatoes Score: {selectedMovie.Ratings[1].Value}</p>}
+                {selectedMovie && <p>{selectedMovie.Plot}</p>}
+              
             </div>
-
           </div>
+
         </div>
       </div>
+
     )
   }
 }
