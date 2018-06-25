@@ -29,7 +29,7 @@ describe('express', () => {
       .evaluate(() => document.querySelector('h1').innerText)
       .end()
       .then((text) => {
-        expect(text).to.equal('Movie Search Container');
+        expect(text).to.equal('My Movie Search App');
       })
   ).timeout(20000);;
 

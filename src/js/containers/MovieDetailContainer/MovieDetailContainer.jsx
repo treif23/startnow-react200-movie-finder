@@ -17,7 +17,7 @@ class MovieDetailContainer extends React.Component {
     const { selectedMovie } = this.props;
     return (
       <div>
-        <h1>Movie Detail Container</h1>
+        <h1>Movie Details</h1>
         <div className='container'>
           <div id='info' className='row'>
 

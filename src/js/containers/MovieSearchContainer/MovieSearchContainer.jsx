@@ -46,7 +46,7 @@ class MovieSearchContainer extends React.Component {
                 <div className='container'>
                     <div className='row'>
                         <div className='col-12'>
-                            <h1 id='title'>Movie Search Container</h1>
+                        <h1 id='title'>My Movie Search App</h1>
                             <h4>Search for a Movie!</h4>
                         </div>
                         <div className="input-group mb-3">
@@ -66,7 +66,8 @@ class MovieSearchContainer extends React.Component {
             <div className='container'>
                 <div className='row'>
                     <div className='col-12'>
-                        <h1 id='title'>Movie Search Container</h1>
+                        <h1 id='title'>My Movie Search App</h1>
+                        <h4>Search for a Movie!</h4>
                     </div>
                     <div className="input-group mb-3">
                         <input type="text" id="bar" className="col-8" placeholder="Movie Title" aria-label="Recipient's username" aria-describedby="basic-addon2" onChange={this.handleSearchInput}
