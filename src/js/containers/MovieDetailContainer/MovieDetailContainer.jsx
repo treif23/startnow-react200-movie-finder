@@ -24,8 +24,8 @@ class MovieDetailContainer extends React.Component {
             <div className='col-5'>
               {selectedMovie && <img id='poster' src={selectedMovie.Poster} />}
               </div>
-              <div id='movie1' className='col-5'>
-                {selectedMovie && <p id='title1'>{selectedMovie.Title}</p>}
+              <div id='movie1' class='info2' className='col-5'>
+                {selectedMovie && <h5 id='title1'>{selectedMovie.Title}</h5>}
                 {selectedMovie && <p>({selectedMovie.Year})</p>}
                 {selectedMovie && <p>Director: {selectedMovie.Director}</p>}
                 {selectedMovie && <p>Actors: {selectedMovie.Actors}</p>}

@@ -41,16 +41,16 @@ class MovieSearchContainer extends React.Component {
 
     render() {
         const { movies } = this.props;
-        console.log('RENDER METHOD', this.props.movies)
         if (movies.length == 0) {
             return (
                 <div className='container'>
                     <div className='row'>
                         <div className='col-12'>
                             <h1 id='title'>Movie Search Container</h1>
+                            <h4>Search for a Movie!</h4>
                         </div>
                         <div className="input-group mb-3">
-                            <input type="text" id="bar" className="col-8" placeholder="Movie Title" aria-label="Recipient's username" aria-describedby="basic-addon2" onChange={this.handleSearchInput}
+                            <input type="text" id="bar" className="col-8"  placeholder="Movie Title" aria-label="Recipient's username" aria-describedby="basic-addon2" onChange={this.handleSearchInput}
                             ></input>
                             <div className="input-group-append">
                                 <button id='search' className="btn btn-outline-secondary" type="button" onClick={this.handleSearch}>Go!</button>
@@ -82,13 +82,13 @@ class MovieSearchContainer extends React.Component {
                     <div key={movie.imdbID} id='info' className='row'>
 
                         <div className='col-5'>
-                            {movie.Poster && <img src={movie.Poster} />}
+                            {movie.Poster && <img id='poster1' src={movie.Poster} />}
                         </div>
                         <div id='movie' className='col-5'>
-                            {movie.Title && <p id='title1'>{movie.Title}</p>}
-                            {movie.Year && <p>({movie.Year})</p>}
+                            {movie.Title && <h5 id='title1'>{movie.Title}</h5>}
+                            {movie.Year && <p id='year'>({movie.Year})</p>}
                             <Link to={`/movie/${movie.imdbID}`}>
-                            <button className="btn btn-primary col-lg-4" role="button" onClick={this.handleDetails}>More Details</button>
+                            <button className="btn btn-primary col-lg-4" name='moreDetails' role="button" onClick={this.handleDetails} id='details'>More Details</button>
                             </Link>
                         </div>
 
