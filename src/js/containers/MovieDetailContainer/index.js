@@ -21,4 +21,3 @@ function mapStoreToProps(store) {
 
 export default connect(mapStoreToProps)(MovieDetailContainer);
 
-console.log('OK');

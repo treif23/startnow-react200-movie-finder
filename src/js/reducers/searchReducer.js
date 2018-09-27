@@ -19,7 +19,6 @@ export default function searchReducer(state = defaultState, action) {
         }
         case 'UPDATE_MOVIE_DESCRIPTION_FULFILLED': {
             //payload == response
-console.log("INSIDE ACTION", payload)
             return {
 
                 ...state,
@@ -28,13 +27,11 @@ console.log("INSIDE ACTION", payload)
             };
         }
         case 'UPDATE_MOVIE_DETAILS_FULFILLED': {
-            console.log('INSIDE DETAILS ACTION')
             return {
                 ...state,
                 selectedMovie: payload
                
             };
-            console.log(imdbID)
         }
 
         default: {

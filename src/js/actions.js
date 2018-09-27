@@ -24,7 +24,6 @@ export function updateMovieDetails(id) {
         type: 'UPDATE_MOVIE_DETAILS',
         payload: axios.get('https://www.omdbapi.com/?i='+id+'&apikey=8730e0e')
         .then(response => {
-        console.log(response);
         return response.data
      }) 
     };
